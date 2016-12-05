@@ -95,5 +95,6 @@
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
     <File Name="clock.h"/>
+    <File Name="clock.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

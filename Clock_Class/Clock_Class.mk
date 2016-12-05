@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Dontre' McCain
-Date                   :=02/12/2016
+Date                   :=05/12/2016
 CodeLitePath           :="/Users/tredegr8/Library/Application Support/codelite"
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -dynamiclib -fPIC
@@ -60,7 +60,7 @@ AS       := as
 ## User defined environment variables
 ##
 CodeLiteDir:=/Users/tredegr8/Downloads/codelite.app/Contents/SharedSupport/
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/clock.cpp$(ObjectSuffix) 
 
 
 
@@ -98,6 +98,14 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix)main.cpp
+
+$(IntermediateDirectory)/clock.cpp$(ObjectSuffix): clock.cpp $(IntermediateDirectory)/clock.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/tredegr8/Google Drive/Data Structures CodeLite WS/MyClock_Class/Clock-Class/Clock_Class/clock.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/clock.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/clock.cpp$(DependSuffix): clock.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/clock.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/clock.cpp$(DependSuffix) -MM clock.cpp
+
+$(IntermediateDirectory)/clock.cpp$(PreprocessSuffix): clock.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/clock.cpp$(PreprocessSuffix)clock.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
